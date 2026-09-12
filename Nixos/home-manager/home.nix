@@ -8,7 +8,9 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
- 
+
+    localsend
+    git
     firefox
     emacs
     discord
@@ -29,17 +31,8 @@
     rustc
     rustfmt
     unzip
+    gh
   ];
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Cikuozzo";
-        email = "roccorotondo@tutamail.com";
-      };
-    };
-  };
 
   programs.home-manager.enable = true;
 

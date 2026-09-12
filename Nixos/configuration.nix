@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/nvidia.nix
