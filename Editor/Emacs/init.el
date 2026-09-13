@@ -86,26 +86,6 @@
 (setq company-minimum-prefix-length 2)
 (setq company-idle-delay 0.1)
 
-;;; Org-Mode
-(rc/require 'org-modern)
-(add-hook 'org-mode-hook #'org-modern-mode)
-
-(setq org-startup-indented t)
-(setq org-hide-leading-stars t)
-(setq org-startup-folded 'overview)
-(setq org-ellipsis " ▾")
-
-(setq org-return-follows-link t)
-(setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
-
-(setq org-html-htmlize-output-type 'css)
-(setq org-export-with-toc t)
-(setq org-export-with-section-numbers t)
-
-(global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c l") 'org-store-link)
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
