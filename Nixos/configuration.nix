@@ -11,6 +11,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/nvidia.nix
+      ./modules/swap.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
