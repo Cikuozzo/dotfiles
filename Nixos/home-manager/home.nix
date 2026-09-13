@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
 
+    neovim
     localsend
     git
     firefox
