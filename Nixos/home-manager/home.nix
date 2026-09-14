@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
 
+    pkgs.kdePackages.kcalc
     neovim
     localsend
     git
