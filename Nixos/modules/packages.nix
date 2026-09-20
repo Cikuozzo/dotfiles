@@ -18,6 +18,7 @@
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
+    smartmontools
     btrfs-assistant
     home-manager
     curl
