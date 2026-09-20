@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
 
+    prismlauncher
     pkgs.kdePackages.kcalc
     neovim
     localsend
