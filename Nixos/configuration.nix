@@ -11,6 +11,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/nvidia.nix
+      ./modules/kde.nix
       ./modules/swap.nix
     ];
 
@@ -42,10 +43,6 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true; 
-  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

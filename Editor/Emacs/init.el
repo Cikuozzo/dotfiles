@@ -18,6 +18,7 @@
 (rc/require 'zig-mode)
 (rc/require 'rust-mode)
 (rc/require 'go-mode)
+(rc/require 'nix-mode)
 
 ;; personal settings
 (setq make-backup-files nil)
