@@ -10,7 +10,6 @@
   home.packages = with pkgs; [
 
     prismlauncher
-    pkgs.kdePackages.kcalc
     neovim
     localsend
     git
@@ -18,8 +17,6 @@
     emacs
     discord
     gimp
-    kdePackages.kate
-    kdePackages.kdenlive
     obs-studio
     obsidian
     pavucontrol
