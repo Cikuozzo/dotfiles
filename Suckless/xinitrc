@@ -1,0 +1,8 @@
+xinput set-prop "Kingsis Corporation ZOWIE Gaming mouse" "libinput Accel Profile Enabled" 0, 1
+setxkbmap us -variant intl
+pipewire &
+pipewire-pulse &
+wireplumber &
+lxpolkit &
+slstatus &
+exec dwm
