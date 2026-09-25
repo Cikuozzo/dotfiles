@@ -75,5 +75,5 @@ static const struct arg args[] = {
 	{ cpu_perc,     " 💻 %s%% |",    NULL },
 	{ ram_perc,     " 🧠 %s%% |",    NULL },
 	{ run_command,  " 🔊 %s |",     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2*100\"%\"}'" },
-	{ datetime,     " 📅 %s ",      "%a %d %b %H:%M" },
+	{ datetime,     " 📅 %s ",      "%a %d %b %H:%M:%S" },
 };
