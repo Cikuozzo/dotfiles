@@ -8,6 +8,7 @@ pipewire &
 pipewire-pulse &
 wireplumber &
 lxpolkit &
-slstatus &
+snixembed &
+dwmblocks &
 feh --bg-fill ~/Immagini/wallpaper/minimal_lightbulb.jpg &
 exec dwm
