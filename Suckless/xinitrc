@@ -9,4 +9,5 @@ pipewire-pulse &
 wireplumber &
 lxpolkit &
 slstatus &
+feh --bg-fill ~/Immagini/wallpaper/minimal_lightbulb.jpg &
 exec dwm
