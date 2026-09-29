@@ -90,7 +90,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { Mod4Mask|ShiftMask,           XK_s,      spawn,          {.v = flameshotcmd } },
+        { Mod4Mask|ShiftMask,           XK_s,      spawn,          {.v = flameshotcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
