@@ -11,11 +11,11 @@ lxpolkit &
 feh --bg-fill ~/Immagini/wallpaper/minimal_lightbulb.jpg &
 
 
+#DWM
 
-# DWM
 #dwmblocks &
 #exec dwm
 
-
 # i3
+
 exec i3

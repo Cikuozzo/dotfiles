@@ -1,0 +1,25 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+
+separator_block_width=15
+markup=none
+
+[cpu_usage]
+label=CPU 
+command=/usr/share/i3blocks/cpu_usage || true
+interval=2
+
+
+[memory]
+label=RAM 
+command=/usr/share/i3blocks/memory || true
+interval=10
+
+[disk]
+label=HOME 
+command=/usr/share/i3blocks/disk || true
+interval=30
+
+[time]
+label=
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
