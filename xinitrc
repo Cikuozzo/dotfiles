@@ -8,7 +8,14 @@ pipewire &
 pipewire-pulse &
 wireplumber &
 lxpolkit &
-snixembed &
-dwmblocks &
 feh --bg-fill ~/Immagini/wallpaper/minimal_lightbulb.jpg &
-exec dwm
+
+
+
+# DWM
+#dwmblocks &
+#exec dwm
+
+
+# i3
+exec i3
