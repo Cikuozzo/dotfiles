@@ -18,6 +18,7 @@
     spectacle
     koko
     ark
+    kolourpaint
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
