@@ -35,6 +35,39 @@
 (global-display-line-numbers-mode 1)
 (set-face-attribute 'default nil :height 180)
 
+;;; Bar settings
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'which-key-mode)
+  (diminish 'whitespace-mode))
+
+(use-package emacs
+  :custom
+  (column-number-mode t)
+  (line-number-mode t)
+  (mode-line-format
+   '("%e "
+     mode-line-mule-info
+     mode-line-modified
+     " "
+     (:property buffer-name face mode-line-buffer-id)
+     "  (%p) %l:%c  "
+     "[%m] "
+     mode-line-modes
+     vc-mode
+     " "))
+  :config
+  (custom-set-faces
+   '(mode-line
+     ((t (:background "#3c3836"
+          :foreground "#ebdbb2"
+          :box (:line-width 4 :color "#3c3836")))))
+   '(mode-line-inactive
+     ((t (:background "#1d2021"
+          :foreground "#7c6f64"
+          :box (:line-width 4 :color "#1d2021")))))))
+
 ;;; Theme
 (use-package gruvbox-theme
   :defer t
@@ -151,4 +184,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:background "#3c3836" :foreground "#ebdbb2" :box (:line-width 4 :color "#3c3836")))))
+ '(mode-line-inactive ((t (:background "#1d2021" :foreground "#7c6f64" :box (:line-width 4 :color "#1d2021"))))))
