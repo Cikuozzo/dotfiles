@@ -19,12 +19,18 @@
 
   environment.systemPackages = with pkgs; [
     smartmontools
-    btrfs-assistant
     home-manager
     curl
     gcc
     gnumake
     pkg-config
     wget
+    unzip
+    cargo
+    clippy
+    rust-analyzer
+    rustc
+    rustfmt
+    qdirstat
   ];
 }

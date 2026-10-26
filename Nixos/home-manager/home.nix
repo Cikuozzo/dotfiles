@@ -23,16 +23,12 @@
     vlc
     xivlauncher
     papirus-icon-theme
-    cargo
-    clippy
     fastfetch
     ripgrep
-    rust-analyzer
-    rustc
-    rustfmt
-    unzip
     gh
-  ];
+    telegram-desktop
+
+];
 
   programs.home-manager.enable = true;
 

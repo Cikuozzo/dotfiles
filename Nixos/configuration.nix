@@ -19,6 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   networking.hostName = "darkstar"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -65,6 +66,16 @@
   # AppImage
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
+
+  #Cleanup
+  nix.gc = {
+  automatic = true;
+  dates = "weekly";
+  options = "--delete-older-than 14d";
+  };
+
+  #Store Hard-Linking
+  nix.settings.auto-optimise-store = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
