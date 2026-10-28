@@ -2,7 +2,7 @@
 
 set -e
 
-EMACS_DOTFILES="/home/rocco/Documenti/Github/dotfiles/Editor/Emacs"
+EMACS_DOTFILES="/home/rocco/Documenti/github/dotfiles/Editor/Emacs"
 
 echo "Deploying Emacs config..."
 
