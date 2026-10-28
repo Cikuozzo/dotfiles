@@ -15,7 +15,6 @@
     git
     firefox
     emacs
-    discord
     gimp
     obs-studio
     obsidian
@@ -27,7 +26,12 @@
     ripgrep
     gh
     telegram-desktop
-
+    blender
+    librecad
+    freecad
+    kicad
+    openscad
+    vesktop
 ];
 
   programs.home-manager.enable = true;
