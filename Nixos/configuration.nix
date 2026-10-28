@@ -11,7 +11,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/nvidia.nix
-      ./modules/kde.nix
+      ./modules/xfce.nix
       ./modules/swap.nix
     ];
 
