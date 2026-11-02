@@ -164,12 +164,12 @@
 
 ;;; Tree-sitter
 (use-package treesit-auto
+  :ensure t
   :custom
-  (treesit-auto-install t)
-  (treesit-font-lock-level 4)
+  (treesit-auto-install 'prompt)
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode 1))
+  (global-treesit-auto-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

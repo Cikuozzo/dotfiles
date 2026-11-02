@@ -36,7 +36,11 @@ vim.opt.syntax = "on" -- Turn on syntax highlighting
 
 vim.pack.add({
   "https://github.com/ellisonleao/gruvbox.nvim",
+  "https://github.com/vim-airline/vim-airline",
+  "https://github.com/vim-airline/vim-airline-themes",
+  "https://github.com/tpope/vim-fugitive",
 })
+
 
 -- ===== Gruvbox =====
 
@@ -47,3 +51,20 @@ require("gruvbox").setup({
 vim.o.background = "dark"
 
 vim.cmd.colorscheme("gruvbox")
+
+vim.g.airline_theme = "base16_gruvbox_dark_hard"
+
+-- ===== Fugitive =====
+
+-- Small helper to make mappings shorter
+local function map(mode, lhs, rhs)
+  vim.keymap.set(mode, lhs, rhs, { silent = true })
+end
+
+map("n", "<leader>gs", ":Git<CR>")          -- Git status window
+map("n", "<leader>gc", ":Git commit<CR>")   -- Commit
+map("n", "<leader>gp", ":Git push<CR>")     -- Push
+map("n", "<leader>gl", ":Git log<CR>")      -- Log
+map("n", "<leader>gd", ":Gdiffsplit<CR>")   -- Diff of the current file
+map("n", "<leader>gb", ":Git blame<CR>")    -- Blame
+
