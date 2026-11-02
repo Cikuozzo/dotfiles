@@ -2,7 +2,7 @@
 
 set -e
 
-NEOVIM_DOTFILES="/home/rocco/Documenti/Github/dotfiles/Editor/Neovim"
+NEOVIM_DOTFILES="/home/rocco/Documenti/github/dotfiles/Editor/Neovim"
 
 echo "Deploying Neovim config..."
 
