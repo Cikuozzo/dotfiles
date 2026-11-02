@@ -102,3 +102,13 @@ cmp.setup({
     { name = "path" },
   }),
 })
+
+-- ===== File explorer (netrw) =====
+
+vim.g.netrw_banner = 0        -- Hide the top help banner
+vim.g.netrw_liststyle = 3     -- Tree view
+vim.g.netrw_winsize = 25      -- Sidebar width in percent
+
+-- Toggle a sidebar on the left
+vim.keymap.set("n", "<leader>ff", ":Lexplore<CR>", { silent = true })
+
