@@ -35,24 +35,24 @@ vim.opt.syntax = "on" -- Turn on syntax highlighting
 -- ===== Plugins =====
 
 vim.pack.add({
-  "https://github.com/ellisonleao/gruvbox.nvim",
-  "https://github.com/vim-airline/vim-airline",
-  "https://github.com/vim-airline/vim-airline-themes",
-  "https://github.com/tpope/vim-fugitive",
-   -- Autocompletion
-  "https://github.com/hrsh7th/nvim-cmp",
-  "https://github.com/hrsh7th/cmp-buffer",        -- words from the buffer
-  "https://github.com/hrsh7th/cmp-path",          -- file paths
-  "https://github.com/hrsh7th/cmp-nvim-lsp",      -- sources from LSP servers
-  "https://github.com/L3MON4D3/LuaSnip",          -- snippet engine
-  "https://github.com/saadparwaiz1/cmp_luasnip",  -- snippet source for cmp
+    "https://github.com/ellisonleao/gruvbox.nvim",
+    "https://github.com/vim-airline/vim-airline",
+    "https://github.com/vim-airline/vim-airline-themes",
+    "https://github.com/tpope/vim-fugitive",
+    -- Autocompletion
+    "https://github.com/hrsh7th/nvim-cmp",
+    "https://github.com/hrsh7th/cmp-buffer",        -- words from the buffer
+    "https://github.com/hrsh7th/cmp-path",          -- file paths
+    "https://github.com/hrsh7th/cmp-nvim-lsp",      -- sources from LSP servers
+    "https://github.com/L3MON4D3/LuaSnip",          -- snippet engine
+    "https://github.com/saadparwaiz1/cmp_luasnip",  -- snippet source for cmp
 })
 
 
 -- ===== Gruvbox =====
 
 require("gruvbox").setup({
-  contrast = "hard",
+    contrast = "hard",
 })
 
 vim.o.background = "dark"
@@ -65,7 +65,7 @@ vim.g.airline_theme = "base16_gruvbox_dark_hard"
 
 -- Small helper to make mappings shorter
 local function map(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, { silent = true })
+    vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
 map("n", "<leader>gs", ":Git<CR>")          -- Git status window
@@ -81,26 +81,26 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = cmp.mapping.select_next_item(),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-  }, {
-    { name = "buffer" },
-    { name = "path" },
-  }),
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    mapping = cmp.mapping.preset.insert({
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    }),
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+    }, {
+        { name = "buffer" },
+        { name = "path" },
+    }),
 })
 
 -- ===== File explorer (netrw) =====
