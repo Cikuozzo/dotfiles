@@ -32,6 +32,14 @@ vim.opt.wildmenu = true -- Show a menu when completing commands with TAB
 
 vim.opt.syntax = "on" -- Turn on syntax highlighting
 
+vim.opt.clipboard = "unnamedplus" -- Use the system clipboard for all yank, delete and paste
+
+-- Deleting does not overwrite the clipboard
+
+vim.keymap.set({ "n", "v" }, "x", '"_x')
+
+vim.keymap.set({ "n", "v" }, "d", '"_d')
+
 -- ===== Plugins =====
 
 vim.pack.add({
