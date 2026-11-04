@@ -22,7 +22,6 @@ vim.opt.shortmess:append("I") -- Hide the intro screen
 -- Deleting does not overwrite the clipboard
 
 vim.keymap.set({ "n", "v" }, "x", '"_x')
-
 vim.keymap.set({ "n", "v" }, "d", '"_d')
 
 -- ===== Plugins =====
@@ -32,7 +31,6 @@ vim.pack.add({
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons", -- icons (needs a Nerd Font)
     "https://github.com/tpope/vim-fugitive",
-    -- Autocompletion
     "https://github.com/hrsh7th/nvim-cmp",
     "https://github.com/hrsh7th/cmp-buffer",        -- words from the buffer
     "https://github.com/hrsh7th/cmp-path",          -- file paths
@@ -55,7 +53,6 @@ vim.cmd.colorscheme("gruvbox")
 
 -- ===== Lualine =====
 
--- "auto" takes the colors from the active colorscheme, so it follows gruvbox dark hard
 require("lualine").setup({
     options = {
         theme = "auto",
@@ -67,7 +64,6 @@ require("lualine").setup({
 
 -- ===== Fugitive =====
 
--- Small helper to make mappings shorter
 local function map(mode, lhs, rhs)
     vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
