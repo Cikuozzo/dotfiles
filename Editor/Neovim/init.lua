@@ -1,38 +1,23 @@
 -- ===== Basic options ====
-
 vim.opt.number = true -- Show line number
-
 vim.opt.tabstop = 4 -- Set tab as 4 spaces
-
 vim.opt.shiftwidth = 4 -- Indent with 4 spaces when using >> or auto-indent
-
 vim.opt.expandtab = true -- Insert spaces instead of a real tab character
-
 vim.opt.smartindent = true -- Indent automatically
-
 vim.opt.autoindent = true -- Keep the indentation of the previous line on a new line
-
 vim.opt.termguicolors = true -- Use full 24-bit colors
-
 vim.opt.mouse = "a" -- Enable the mouse in all modes
-
 vim.opt.hidden = true -- Allow swiching between buffers without saving them first
-
 vim.opt.ignorecase = true -- Search is not case sensitive
-
 vim.opt.smartcase = true -- Search is case sensitive if there is a capital letter
-
 vim.opt.showtabline = 0 -- Never Shows the bar at the top
-
 vim.opt.cursorline = true -- Highlight the line where the cursor is
-
 vim.opt.path:append("**") -- Let :find search in all subfolder
-
 vim.opt.wildmenu = true -- Show a menu when completing commands with TAB
-
 vim.opt.syntax = "on" -- Turn on syntax highlighting
-
 vim.opt.clipboard = "unnamedplus" -- Use the system clipboard for all yank, delete and paste
+vim.opt.showmode = false -- The mode is already shown by lualine
+vim.opt.shortmess:append("I") -- Hide the intro screen
 
 -- Deleting does not overwrite the clipboard
 
@@ -44,8 +29,8 @@ vim.keymap.set({ "n", "v" }, "d", '"_d')
 
 vim.pack.add({
     "https://github.com/ellisonleao/gruvbox.nvim",
-    "https://github.com/vim-airline/vim-airline",
-    "https://github.com/vim-airline/vim-airline-themes",
+    "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/nvim-tree/nvim-web-devicons", -- icons (needs a Nerd Font)
     "https://github.com/tpope/vim-fugitive",
     -- Autocompletion
     "https://github.com/hrsh7th/nvim-cmp",
@@ -54,6 +39,7 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-nvim-lsp",      -- sources from LSP servers
     "https://github.com/L3MON4D3/LuaSnip",          -- snippet engine
     "https://github.com/saadparwaiz1/cmp_luasnip",  -- snippet source for cmp
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
 
@@ -67,7 +53,17 @@ vim.o.background = "dark"
 
 vim.cmd.colorscheme("gruvbox")
 
-vim.g.airline_theme = "base16_gruvbox_dark_hard"
+-- ===== Lualine =====
+
+-- "auto" takes the colors from the active colorscheme, so it follows gruvbox dark hard
+require("lualine").setup({
+    options = {
+        theme = "auto",
+        section_separators = "",
+        component_separators = "|",
+    },
+})
+
 
 -- ===== Fugitive =====
 
@@ -111,12 +107,26 @@ cmp.setup({
     }),
 })
 
+
 -- ===== File explorer (netrw) =====
 
 vim.g.netrw_banner = 0        -- Hide the top help banner
 vim.g.netrw_liststyle = 3     -- Tree view
 vim.g.netrw_winsize = 25      -- Sidebar width in percent
 
--- Toggle a sidebar on the left
 vim.keymap.set("n", "<leader>ff", ":Lexplore<CR>", { silent = true })
 
+
+-- ===== Treesitter =====
+ 
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        -- pcall: filetypes without a parser just keep the classic syntax
+        if pcall(vim.treesitter.start, args.buf) then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.wo.foldmethod = "expr"
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo.foldlevel = 99 -- Start with all folds open
+        end
+    end,
+})
