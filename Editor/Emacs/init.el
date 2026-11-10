@@ -40,6 +40,10 @@
   :defer t
   :init (load-theme 'gruvbox-dark-hard t))
 
+;;; Mode-line
+(use-package mood-line
+  :config (mood-line-mode 1))
+
 ;;; Magit
 (use-package magit
   :bind (("C-c m s" . magit-status)
@@ -99,7 +103,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(apheleia cape corfu go-mode gruvbox-theme multiple-cursors
+   '(apheleia cape corfu go-mode gruvbox-theme mood-line multiple-cursors
               rainbow-delimiters rust-mode treesit-auto)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
