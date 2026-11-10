@@ -77,27 +77,33 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
+;;; Corfu
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.1)
+  (corfu-cycle t)
+  (tab-always-indent 'complete)
+  :init (global-corfu-mode 1))
+
+;;; Cape
+(use-package cape
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(apheleia go-mode gruvbox-theme multiple-cursors rainbow-delimiters
-              rust-mode treesit-auto)))
+   '(apheleia cape corfu go-mode gruvbox-theme multiple-cursors
+              rainbow-delimiters rust-mode treesit-auto)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
-
-
-
-
-
-
-
-
