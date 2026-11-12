@@ -24,6 +24,9 @@
               standard-indent 4)
 (auto-save-visited-mode 1)
 (cua-mode 1)
+(savehist-mode 1)
+(recentf-mode 1)
+(pixel-scroll-precision-mode 1)
 (setq native-comp-async-report-warnings-errors 'silent)
 
 ;;; UI
@@ -97,12 +100,64 @@
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file))
 
+;;; Vertico
+(use-package vertico
+  :custom (vertico-cycle t)
+  :init (vertico-mode 1))
+
+;;; Marginalia
+(use-package marginalia
+  :init (marginalia-mode 1))
+
+;;; Orderless
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package diredfl
+  :hook (dired-mode . diredfl-mode))
+
+(use-package vundo
+  :bind ("C-x u" . vundo))
+
+(use-package indent-bars
+  :hook (prog-mode . indent-bars-mode))
+
+(use-package ace-window
+  :bind ("C-x o" . ace-window))
+
+(use-package which-key
+  :config (which-key-mode 1))
+
+(use-package dashboard
+  :custom
+  (dashboard-items '((recents . 10)))
+  (dashboard-center-content t)
+  :config
+  (dashboard-setup-startup-hook))
+
+(use-package yasnippet
+  :config (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
+
+(use-package yasnippet-capf
+  :after (cape yasnippet)
+  :config (add-to-list 'completion-at-point-functions #'yasnippet-capf))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(ace-window apheleia cape corfu dashboard diredfl gruvbox-theme
+                indent-bars magit marginalia mood-line move-text
+                multiple-cursors orderless rainbow-delimiters
+                treesit-auto vertico vundo yasnippet yasnippet-capf
+                yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
