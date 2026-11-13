@@ -27,6 +27,7 @@
 (savehist-mode 1)
 (recentf-mode 1)
 (pixel-scroll-precision-mode 1)
+(setq delete-by-moving-to-trash t)
 (setq native-comp-async-report-warnings-errors 'silent)
 
 ;;; UI
@@ -147,6 +148,24 @@
   :after (cape yasnippet)
   :config (add-to-list 'completion-at-point-functions #'yasnippet-capf))
 
+
+;; org-mode
+(use-package org
+  :ensure nil
+  :custom
+  (org-startup-indented t)
+  (org-hide-emphasis-markers t)
+  (org-return-follows-link t))
+
+(use-package org-modern
+  :ensure t
+  :hook ((org-mode . org-modern-mode)
+         (org-agenda-finalize . org-modern-agenda)))
+
+(use-package org-appear
+  :ensure t
+  :hook (org-mode . org-appear-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -155,9 +174,9 @@
  '(package-selected-packages
    '(ace-window apheleia cape corfu dashboard diredfl gruvbox-theme
                 indent-bars magit marginalia mood-line move-text
-                multiple-cursors orderless rainbow-delimiters
-                treesit-auto vertico vundo yasnippet yasnippet-capf
-                yasnippet-snippets)))
+                multiple-cursors orderless org-appear org-modern
+                rainbow-delimiters treesit-auto vertico vundo
+                yasnippet yasnippet-capf yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
