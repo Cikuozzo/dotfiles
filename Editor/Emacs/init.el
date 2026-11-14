@@ -40,9 +40,11 @@
 (global-display-line-numbers-mode 1)
 
 ;;; Theme
-(use-package gruvbox-theme
-  :defer t
-  :init (load-theme 'gruvbox-dark-hard t))
+(use-package solarized-theme
+  :ensure t
+  :config
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'solarized-dark-high-contrast t))
 
 ;;; Mode-line
 (use-package mood-line
@@ -68,6 +70,7 @@
 (use-package dired-x
   :ensure nil
   :bind ("C-x d" . dired-jump))
+
 
 ;;; Rainbow delimiters
 (use-package rainbow-delimiters
@@ -148,7 +151,6 @@
   :after (cape yasnippet)
   :config (add-to-list 'completion-at-point-functions #'yasnippet-capf))
 
-
 ;; org-mode
 (use-package org
   :ensure nil
@@ -166,17 +168,51 @@
   :ensure t
   :hook (org-mode . org-appear-mode))
 
+(use-package consult
+  :bind (("C-s" . consult-line)
+         ("C-x b" . consult-buffer)))
+
+(use-package avy
+  :bind ("C-j" . avy-goto-char-timer))
+
+(use-package embark
+  :bind
+  (("C-." . embark-act)
+   ("C-;" . embark-dwim))
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command))
+
+(use-package embark-consult
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . embark-consult-preview-minor-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("7fea145741b3ca719ae45e6533ad1f49b2a43bf199d9afaee5b6135fd9e6f9b8"
+     "833ddce3314a4e28411edf3c6efde468f6f2616fc31e17a62587d6a9255f4633"
+     "46433a4be67ff0f415175d0876ef9435d190f3aa57bb00670febd70ba0ba52e1"
+     "b1d29d79c6cbcb9106b92100318053ad6108aa63aceb0802b2e2c0a43c9e9746"
+     "8c3ed94e7048ba43c1f2c455b2f1b4adc0b58c0232c82db29ae80e54aec00cbe"
+     "9e9209fd17023af648e3aaf682255c29beddf5ceb04c3ce7cc883323c2b54901"
+     "d540b201e1dee6f004a4cfef8ada576159a08e5d1b67723a99d2cf069892ea2a"
+     "65d07771a02842150802f2bc32393b49d27e74520c9aca0d2897f69712ec4a49"
+     "f7f98d620ddcbd718f95b7400f7dd0e505150718913cfa95fffb37cbffaab063"
+     "62b3f11cf9bcf2f56be51c3ec91e6feb1e7e380967ea4df9434aab589ca41396"
+     "d4b2d80ad2a37ba2feec0b445a5b90bf379c6d09c1d48c404c16eb2b88fc9d29"
+     "71ff2f817f051ea43c04d2d0f209c2445d06355243fe94d7e00007539fbc471b"
+     default))
  '(package-selected-packages
-   '(ace-window apheleia cape corfu dashboard diredfl gruvbox-theme
-                indent-bars magit marginalia mood-line move-text
-                multiple-cursors orderless org-appear org-modern
-                rainbow-delimiters treesit-auto vertico vundo
-                yasnippet yasnippet-capf yasnippet-snippets)))
+   '(ace-window apheleia cape consult corfu dashboard diredfl embark
+                embark-consult gruvbox-theme indent-bars magit
+                marginalia mood-line move-text multiple-cursors
+                orderless org-appear org-modern rainbow-delimiters
+                treesit-auto vertico vundo yasnippet yasnippet-capf
+                yasnippet-snippets zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
